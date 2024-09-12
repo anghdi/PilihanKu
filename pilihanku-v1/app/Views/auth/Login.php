@@ -10,22 +10,26 @@
 </head>
 
 <body>
-    <header class="fixed w-full text-center bg-blue-600 top-0 z-10">
-        <h1 class="text-2xl text-white font-bold py-3">Login</h1>
+    <header class="top-0 fixed w-full bg-slate-200 content-end">
+        <div class="py-2 flex flex-row-reverse mx-8">
+            <a href="" class="btn-outline-light bg-slate-700 hover:bg-slate-800 font-semibold text-white px-4 py-2 rounded-xl"> Register </a>
+        </div>
     </header>
-    <main class="relative w-full h-full">
-        <img src="<?= base_url('images/bg-login.jpg') ?>" alt="" srcset="" class="fixed z-0 w-full h-full">
-        <div class="relative h-screen w-full content-center">
-            <form action=""
-                class="bg-slate-200 relative w-1/2 mx-auto h-3/4 rounded-2xl bg-opacity-60 flex flex-col justify-center items-center"
-                method="post">
-                <label for="username" class="text-2xl font-medium py-4">Username</label>
-                <input type="text" name="username" class="form-input rounded-xl w-2/4 border-2" id="" placeholder="Masukkan Username">
-                <label for="password" class="text-2xl font-medium py-4">Password</label>
-                <input type="password" name="username" class="form-input rounded-xl w-2/4 border-2" id="" placeholder="Masukkan Password">
-                <button type="submit" class="mt-10 w-2/5 py-2 rounded-lg bg-blue-500 text-white font-semibold hover:bg-blue-900">Login</button>
-                <h6>Belum Punya Akun ?, <a href="<?= base_url('/register')?>" class="text-blue-950 text-lg underline mt-6"> Daftar disini </a> </h6>
+    <main class="w-full flex flex-row justify-between">
+        <div class="w-1/2 h-screen flex justify-center items-center">
+            <img src="<?= base_url('images/login.jpg') ?>" alt="" srcset="" class="h-full">
+        </div>
+        <div class="w-1/2 flex justify-center items-center h-screen bg-slate-300">
+            <div class="border-2 bg-slate-200 w-3/4 h-3/4 text-center rounded-xl justify-center items-center flex">
+            <form action="" method="post" class="flex flex-col w-2/4">
+                    <span class="font-medium text-2xl">Username</span>
+                    <input type="text" name="username" id="" class="box-border rounded-xl h-fit border-4 my-4">
+                    <span class="font-medium text-2xl">Password</span>
+                    <input type="password" name="username" id="" class="box-border rounded-xl h-fit border-4 my-4">
+                    <button type="submit" class="border-2 bg-slate-600 rounded-md text-white font-semibold hover:bg-slate-900 py-1"> Login </button>
+                    <span class="font-light"> Belum punya akun ? <a href="#" class="text-blue-500 font-medium"> Daftar disini </a> </span>
             </form>
+            </div>  
         </div>
     </main>
 </body>
