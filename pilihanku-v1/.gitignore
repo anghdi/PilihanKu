@@ -126,3 +126,6 @@ nb-configuration.xml
 /phpunit*.xml
 
 /node_modules
+
+.env
+env

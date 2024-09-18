@@ -10,6 +10,16 @@ class AuthController extends BaseController
     public function index()
     {
         //
-        return view('auth/Login');
+        return view('admin/auth/LoginAdmin');
+    }
+
+    public function registerUser()
+    {
+        return view('users/auth/RegisterUser');
+    }
+
+    public function loginUser()
+    {
+        
     }
 }
