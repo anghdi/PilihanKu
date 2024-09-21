@@ -6,13 +6,13 @@ use CodeIgniter\Model;
 
 class AuthModel extends Model
 {
-    protected $table            = 'Tbl_User';
-    protected $primaryKey       = 'id';
-    protected $useAutoIncrement = true;
+    protected $table            = 'tbl_users';
+    protected $primaryKey       = 'username';
+    protected $useAutoIncrement = false;
     protected $returnType       = 'array';
     protected $useSoftDeletes   = false;
     protected $protectFields    = true;
-    protected $allowedFields    = [];
+    protected $allowedFields    = ['username', 'password'];
 
     protected bool $allowEmptyInserts = false;
     protected bool $updateOnlyChanged = true;
@@ -28,8 +28,18 @@ class AuthModel extends Model
     protected $deletedField  = 'deleted_at';
 
     // Validation
-    protected $validationRules      = [];
-    protected $validationMessages   = [];
+    protected $validationRules      = [
+        'username' => 'required',
+        'password' => 'required'
+    ];
+    protected $validationMessages   = [
+        'username' => [
+            'required'   => 'Username wajib diisi.',
+        ],
+        'password' => [
+            'required'   => 'Password wajib diisi.',
+        ],
+    ];
     protected $skipValidation       = false;
     protected $cleanValidationRules = true;
 
@@ -43,4 +53,10 @@ class AuthModel extends Model
     protected $afterFind      = [];
     protected $beforeDelete   = [];
     protected $afterDelete    = [];
+
+    // Mendapatkan user berdasarkan username
+    public function getUserByUsername($username)
+    {
+        return $this->where('username', $username)->first();
+    }
 }
