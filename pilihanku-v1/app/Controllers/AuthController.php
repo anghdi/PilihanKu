@@ -12,14 +12,4 @@ class AuthController extends BaseController
         //
         return view('admin/auth/LoginAdmin');
     }
-
-    public function registerUser()
-    {
-        return view('users/auth/RegisterUser');
-    }
-
-    public function loginUser()
-    {
-        
-    }
 }
