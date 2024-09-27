@@ -1,15 +1,18 @@
 # Jika sudah di clone dengan baik
 
-## lakukan perintah composer install (pastikan berhasil / sukses)
+## lakukan penginstalan CodeIgniter 4
+composer install (pastikan berhasil / sukses)
 
-## lakukan perintah npm install (pastikan berhasil / sukses)
+## lakukan penginstalan package
+npm install (pastikan berhasil / sukses)
 
 # Setting .env dengan baik
 
-# Jalankan Seeders
+# Jalankan Seeders (Manual)
+php spark db:seed UsersSeeder (pastikan file seeder sudah ada)
 
-## untuk manual jalankan seeder gunakan perintah php spark db:seed UsersSeeder (pastikan file seeder sudah ada)
+## Mode Debug CodeIgniter 4
+php spark serve
 
-## Jika sudah berhasil jalankan php spark serve (untuk CI4)
-
-## Jika sudah berhasil jalankan npx tailwindcss -i ./public/css/input.css -o ./public/css/output.css --watch
+## Mode Debug Tailwind css
+npx tailwindcss -i ./public/css/input.css -o ./public/css/output.css --watch
