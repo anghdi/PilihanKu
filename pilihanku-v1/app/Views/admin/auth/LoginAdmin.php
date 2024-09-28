@@ -13,37 +13,48 @@
     </style>
 </head>
 
-<body class="overflow-hidden">
-    <nav class="navbar top-0 justify-center items-center bg-White-Custom">
-        <div class="border-2 py-2 lg:px-40 px-10 bg-Grey-Custom rounded-full">
-            <h1 class="text-center text-3xl lg:text-4xl font-bold text-white"> PILIHANKU </h1>
-        </div>
-    </nav>
-    <main class="bg-Grey-Custom h-screen">
-        <div class="hero lg:py-20">
-            <div class="hero-content flex-col lg:flex-row-reverse glass lg:w-2/5 lg:my-12 my-6 rounded-xl top-0">
-                <dotlottie-player src="https://lottie.host/d008f764-c7d5-4fb0-9ba2-b00b2bdea60b/4S5Q06eJOw.json" background="transparent" speed="1" style="width: 300px; height: 300px;" loop autoplay></dotlottie-player>
-                <form action="" method="post" class="flex flex-col gap-4 text-white">
-                    <div class="flex flex-row justify-center items-center">
-                        <span class="material-symbols-outlined">
-                            person
-                        </span>
-                        <input type="text" class="mt-0 block w-full px-0.5 border-0 border-b-2 bg-transparent focus:ring-0 focus:border-black" placeholder="">
+<body>
+    <main class="top-0 left-0 overflow-hidden">
+        <div class="hero bg-White-Custom h-screen">
+            <div class="hero-content">
+                <div class="card bg-white shadow-xl lg:min-w-96">
+                    <div class="card-body">
+                        <h1 class="text-5xl font-bold tracking-wide text-center py-4">PILIHANKU</h1>
+                        <span class="text-center font-semibold">Login Form</span>
+                        <div class="glass rounded-lg px-8">
+                            <form action="" method="post" class="gap-6">
+                                <div class="flex flex-row justify-center items-center py-4">
+                                    <span class="material-symbols-outlined">
+                                        person
+                                    </span>
+                                    <input type="text" class="mt-0 block w-full px-0.5 border-0 border-b-2 bg-transparent focus:ring-0 focus:border-black" placeholder="Masukkan Username">
+                                </div>
+                                <div class="flex flex-row justify-center items-center py-4">
+                                    <span class="material-symbols-outlined">
+                                        lock
+                                    </span>
+                                    <input type="password" class="mt-0 block w-full px-0.5 border-0 border-b-2 bg-transparent focus:ring-0 focus:border-black" placeholder="Masukkan Password">
+                                </div>
+                                <div class="form-control">
+                                    <label class="label cursor-pointer">
+                                        <span class="label-text font-semibold">Ingat Saya</span>
+                                        <input type="checkbox" checked="checked" class="checkbox checkbox-primary" />
+                                    </label>
+                                </div>
+                                <div class="flex flex-row justify-center items-center py-2">
+                                    <button type="submit" class="btn btn-sm btn-warning w-full text-center text-white"> <span class="ml-8">Login</span> 
+                                    <dotlottie-player src="https://lottie.host/7ee33801-af2a-4338-94f1-44f9a2e3995d/uGHB8ts0ke.json" background="transparent" speed="1" style="width: 28px; height: 28px;" loop autoplay></dotlottie-player> </button>
+                                </div>
+                                <div class="pb-6 mx-auto">
+                                    <span class="text-center text-sm"> Belum punya akun ? <a href="" class="underline text-blue-500 text-center font-semibold"> Daftar disini </a> </span>
+                                </div>
+                            </form>
+                        </div>
                     </div>
-                    <div class="flex flex-row justify-center items-center">
-                        <span class="material-symbols-outlined">
-                            lock
-                        </span>
-                        <input type="password" class="mt-0 block w-full px-0.5 border-0 border-b-2 bg-transparent focus:ring-0 focus:border-black" placeholder="">
-                    </div>
-                    <button type="submit" class="btn btn-square hover:bg-orange-700 bg-Orange-Custom mt-2 w-full text-lg text-white"> Login </button>
-                </form>
+                </div>
             </div>
         </div>
     </main>
-    <footer class="bg-Black-Custom text-white bottom-0 py-2 text-center absolute w-full">
-        <p class="font-thin">KhunCode @2024 </p>
-    </footer>
     <script src="https://unpkg.com/@dotlottie/player-component@latest/dist/dotlottie-player.mjs" type="module"></script>
 </body>
 

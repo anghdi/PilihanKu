@@ -6,9 +6,9 @@ composer install (pastikan berhasil / sukses)
 ## lakukan penginstalan package
 npm install (pastikan berhasil / sukses)
 
-# Setting .env dengan baik
+## Setting .env dengan baik
 
-# Jalankan Seeders (Manual)
+## Jalankan Seeders (Manual)
 php spark db:seed UsersSeeder (pastikan file seeder sudah ada)
 
 ## Mode Debug CodeIgniter 4
