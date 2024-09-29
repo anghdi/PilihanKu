@@ -36,6 +36,11 @@ class TblUsers extends Migration
                 'type'       => 'DATETIME',
                 'null'       => true,
             ],
+            'status'       => [
+                'type'       => 'VARCHAR',
+                'constraint' => '10',
+                'null'       => true,
+            ]
         ]);
         $this->forge->addKey('username', true);
         $this->forge->createTable('tbl_users');

@@ -20,16 +20,16 @@
                 <div class="card bg-white shadow-xl lg:min-w-96">
                     <div class="card-body">
                         <h1 class="text-5xl font-bold tracking-wide text-center py-4">PILIHANKU</h1>
-                        <span class="text-center font-semibold">Login Form</span>
+                        <span class="text-center font-semibold">Login</span>
                         <div class="glass rounded-lg px-8">
                             <form action="" method="post" class="gap-6">
-                                <div class="flex flex-row justify-center items-center py-4">
+                                <div class="flex flex-row justify-center items-center py-4 gap-2">
                                     <span class="material-symbols-outlined">
                                         person
                                     </span>
                                     <input type="text" class="mt-0 block w-full px-0.5 border-0 border-b-2 bg-transparent focus:ring-0 focus:border-black" placeholder="Masukkan Username">
                                 </div>
-                                <div class="flex flex-row justify-center items-center py-4">
+                                <div class="flex flex-row justify-center items-center py-4 gap-2">
                                     <span class="material-symbols-outlined">
                                         lock
                                     </span>
@@ -46,7 +46,7 @@
                                     <dotlottie-player src="https://lottie.host/7ee33801-af2a-4338-94f1-44f9a2e3995d/uGHB8ts0ke.json" background="transparent" speed="1" style="width: 28px; height: 28px;" loop autoplay></dotlottie-player> </button>
                                 </div>
                                 <div class="pb-6 mx-auto">
-                                    <span class="text-center text-sm"> Belum punya akun ? <a href="" class="underline text-blue-500 text-center font-semibold"> Daftar disini </a> </span>
+                                    <span class="text-center text-sm"> Belum punya akun ? <a href="/register" class="underline text-blue-500 text-center font-semibold"> Daftar disini </a> </span>
                                 </div>
                             </form>
                         </div>

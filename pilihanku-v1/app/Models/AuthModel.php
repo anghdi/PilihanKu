@@ -12,7 +12,7 @@ class AuthModel extends Model
     protected $returnType       = 'array';
     protected $useSoftDeletes   = false;
     protected $protectFields    = true;
-    protected $allowedFields    = ['username', 'password'];
+    protected $allowedFields    = ['username', 'password', 'email', 'alamat', 'created_at', 'updated_at', 'status'];
 
     protected bool $allowEmptyInserts = false;
     protected bool $updateOnlyChanged = true;
@@ -30,7 +30,9 @@ class AuthModel extends Model
     // Validation
     protected $validationRules      = [
         'username' => 'required',
-        'password' => 'required'
+        'password' => 'required',
+        'email' => 'required',
+        'alamat' => 'required'
     ];
     protected $validationMessages   = [
         'username' => [
@@ -38,6 +40,12 @@ class AuthModel extends Model
         ],
         'password' => [
             'required'   => 'Password wajib diisi.',
+        ],
+        'email' => [
+            'required'   => 'Email wajib diisi.',
+        ],
+        'alamat' => [
+            'required'   => 'Alamat wajib diisi.',
         ],
     ];
     protected $skipValidation       = false;
