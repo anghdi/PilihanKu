@@ -1,18 +1,44 @@
-# Jika sudah di clone dengan baik
+# Proyek CodeIgniter 4 dengan Tailwind CSS
+Proyek ini menggunakan CodeIgniter 4 sebagai framework backend dan Tailwind CSS untuk styling frontend.
 
-## lakukan penginstalan CodeIgniter 4
-composer install (pastikan berhasil / sukses)
+## Langkah-langkah Instalasi
+Clone Repository: 
+```bash
+https://github.com/anghdi/PilihanKu.git
+```
 
-## lakukan penginstalan package
-npm install (pastikan berhasil / sukses)
+## Instal CodeIgniter 4
+Untuk menginstal dependensi CodeIgniter 4, jalankan perintah berikut:
+```bash
+composer install
+```
 
-## Setting .env dengan baik
+## Instal Package NPM
+Instalasi package frontend melalui npm:
+```bash
+npm install
+```
 
-## Jalankan Seeders (Manual)
-php spark db:seed UsersSeeder (pastikan file seeder sudah ada)
+## Konfigurasi File .env
+Salin file .env.example menjadi .env dan lakukan penyesuaian yang diperlukan, seperti konfigurasi database, environment, dan sebagainya.
+```bash
+cp .env.example .env
+```
+
+## Jalankan Seeders
+Untuk mengisi database dengan data dummy, jalankan perintah berikut:
+```bash
+php spark db:seed UsersSeeder
+```
 
 ## Mode Debug CodeIgniter 4
+Untuk menjalankan aplikasi dalam mode debug, gunakan perintah:
+``` bash
 php spark serve
+```
 
-## Mode Debug Tailwind css
+## Mode Debug Tailwind CSS
+Untuk mengaktifkan Tailwind CSS dalam mode debug (watch mode), jalankan perintah berikut:
+```bash
 npx tailwindcss -i ./public/css/input.css -o ./public/css/output.css --watch
+```

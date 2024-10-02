@@ -45,7 +45,7 @@ class AuthController extends BaseController
 
             if ($iRet == 1) {
                 // Jika validasi gagal, kirimkan error
-                return view('admin/auth/LoginAdmin', [
+                return view('auth/Login', [
                     'validation' => $this->model->errors(),
                 ]);
             }
@@ -59,13 +59,11 @@ class AuthController extends BaseController
                     'isLoggedIn' => true,
                 ]);
 
-                return redirect()->to('/dashboard');
+                return redirect()->to('/');
             } else {
                 session()->setFlashdata('error', 'Username atau Password salah.');
-                return redirect()->to('/');
+                return redirect()->to('/login');
             }
-
-            // return view('admin/auth/LoginAdmin');
         }
     }
     #endregion
@@ -76,9 +74,9 @@ class AuthController extends BaseController
     {
         if ($this->request->getMethod() == 'post' || $this->request->getMethod() == 'POST') {
             $this->model = new AuthModel();
-            
+
             $retModel = new ReturnModel();
-            
+
             $data = [
                 'username' => $this->request->getPost('username'),
                 'email' => $this->request->getPost('email'),
@@ -101,26 +99,38 @@ class AuthController extends BaseController
 
                 $password = $this->genPassword();
 
-                $data['password'] = $password;
-                $data['created_at'] = date('Y-m-d H:i:s');
-                $data['updated_at'] = date('Y-m-d H:i:s');
-                $data['status'] = 'ditunggu';
+                $iRet = $this->sendEmail($password, $data['email'], $data['username']);
 
-                if (!$this->model->insert($data)) {
-                    throw new \Exception('Gagal menambahkan data');
+                if ($iRet == 0) {
+                    
+                    $password = password_hash($password, PASSWORD_DEFAULT);
+
+                    $data['password'] = $password;
+                    $data['created_at'] = date('Y-m-d H:i:s');
+                    $data['updated_at'] = date('Y-m-d H:i:s');
+                    $data['status'] = 'ditunggu';
+
+                    if (!$this->model->insert($data)) {
+                        throw new \Exception('Gagal menambahkan data');
+                    }
+
+                    // Jika semua operasi sukses, commit transaksi
+                    if ($db->transStatus() === false) {
+                        // Jika ada error, rollback transaksi
+                        $db->transRollback();
+                        $retModel->setMessage('tidak dapat menambahkan data');
+                        $retModel->setNumber(1);
+                    } else {
+                        // Commit jika sukses
+                        $db->transCommit();
+                        $retModel->setMessage('Data tersimpan, mohon menunggu persetujuan admin');
+                        $retModel->setNumber(0);
+                    }
                 }
-
-                // Jika semua operasi sukses, commit transaksi
-                if ($db->transStatus() === false) {
-                    // Jika ada error, rollback transaksi
-                    $db->transRollback();
-                    $retModel->setMessage('tidak dapat menambahkan data');
+                else
+                {
+                    $retModel->setMessage("Pendaftaran tidak berhasil");
                     $retModel->setNumber(1);
-                } else {
-                    // Commit jika sukses
-                    $db->transCommit();
-                    $retModel->setMessage('Sukses, menunggu konfirmasi admin');
-                    $retModel->setNumber(0);
                 }
             } catch (\Exception $e) {
                 // Jika terjadi kesalahan, rollback transaksi
@@ -129,7 +139,7 @@ class AuthController extends BaseController
                 $retModel->setNumber(1);
             }
 
-            return view('auth/Register', ['number' => $retModel->getNumber(), 'message' => $retModel->getMessage() ]);   
+            return view('auth/Register', ['number' => $retModel->getNumber(), 'message' => $retModel->getMessage()]);
         }
     }
 
@@ -150,8 +160,37 @@ class AuthController extends BaseController
 
     private function genPassword(): string
     {
-        $strPass = substr(bin2hex(random_bytes(3)), 0, 5);
-        $strPass = password_hash($strPass, PASSWORD_DEFAULT);
+        $strPass = substr(bin2hex(random_bytes(3)), 0, 10);
         return $strPass;
+    }
+
+    public function sendEmail($password, $emailuser, $username): int
+    {
+
+        $iRet = 1;
+
+        $email = \Config\Services::email();
+
+        $email->setFrom('anggahadi447@gmail.com', 'Nama Pengirim');
+
+        $email->setTo($emailuser);
+
+        // $email->setCC('emailcc@example.com'); // Jika perlu
+        // $email->setBCC('emailbcc@example.com'); // Jika perlu
+
+        $email->setSubject('Password Akun Anda');
+        $email->setMessage(' Terima kasih telah mendaftarkan akun Anda. <br> Berikut adalah informasi akun Anda: <br> <br> <br> 
+                            <strong>username : ' . $username . '</strong> <br> 
+                            <strong>password : ' . $password . '</strong> <br> 
+                            <br> <br>
+                            <i><b>Mohon untuk tetap menjaga privasi data anda agar tidak disalahgunakan oleh orang yang tidak bersangkutan.</b></i> ');
+
+        if ($email->send()) {
+            $iRet = 0;
+        } else {
+            $iRet = 1;
+        }
+
+        return $iRet;
     }
 }

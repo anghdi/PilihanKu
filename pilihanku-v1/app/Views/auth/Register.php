@@ -8,9 +8,6 @@
     <link href="<?= base_url('css/output.css') ?>" rel="stylesheet">
     <link rel="icon" type="image/x-icon" href="<?= base_url('images/vote.png') ?>">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
-    <style>
-
-    </style>
 </head>
 
 <body>
@@ -21,7 +18,7 @@
                     <div class="absolute w-full top-0">
                         <?php if (isset($number)) : ?>
                             <?php if ($number == 0) : ?>
-                                <div role="alert" class="alert alert-success">
+                                <div role="alert" class="alert alert-success w-full">
                                     <svg
                                         xmlns="http://www.w3.org/2000/svg"
                                         class="h-6 w-6 shrink-0 stroke-current"
@@ -36,7 +33,7 @@
                                     <span class="font-medium text-white"> <?php echo ($message) ?> </span>
                                 </div>
                             <?php else : ?>
-                                <div role="alert" class="alert alert-error">
+                                <div role="alert" class="alert alert-error w-full">
                                     <svg
                                         xmlns="http://www.w3.org/2000/svg"
                                         class="h-6 w-6 shrink-0 stroke-current"
@@ -63,7 +60,7 @@
                                         person
                                     </span>
                                     <div class="flex flex-col w-full">
-                                        <input type="text" name="username" class="mt-0 block w-full px-0.5 border-0 border-b-2 bg-transparent focus:ring-0 focus:border-black" placeholder="Masukkan Username" value="<?= set_value('username') ?>">
+                                        <input type="text" name="username" class="mt-0 block w-full px-0.5 border-0 border-b-2 bg-transparent focus:ring-0 focus:border-black" placeholder="Masukkan Username" value="<?= set_value('username') ?>" required>
                                         <?php if (isset($validation)) : ?>
                                             <?php if (!empty($validation['username'])) : ?>
                                                 <div class="flex">
@@ -79,7 +76,7 @@
                                         mail
                                     </span>
                                     <div class="flex flex-col w-full">
-                                        <input type="email" name="email" class="mt-0 block w-full px-0.5 border-0 border-b-2 bg-transparent focus:ring-0 focus:border-black" placeholder="Masukkan Email" value="<?= set_value('email') ?>">
+                                        <input type="email" name="email" class="mt-0 block w-full px-0.5 border-0 border-b-2 bg-transparent focus:ring-0 focus:border-black" placeholder="Masukkan Email" value="<?= set_value('email') ?>" required>
                                         <?php if (isset($validation)) : ?>
                                             <?php if (!empty($validation['email'])) : ?>
                                                 <div class="flex">
@@ -95,7 +92,7 @@
                                         home
                                     </span>
                                     <div class="flex flex-col w-full">
-                                        <input type="text" name="alamat" class="mt-0 block w-full px-0.5 border-0 border-b-2 bg-transparent focus:ring-0 focus:border-black" placeholder="Masukkan Alamat" value="<?= set_value('alamat') ?>">
+                                        <input type="text" name="alamat" class="mt-0 block w-full px-0.5 border-0 border-b-2 bg-transparent focus:ring-0 focus:border-black" placeholder="Masukkan Alamat" value="<?= set_value('alamat') ?>" required>
                                         <?php if (isset($validation)) : ?>
                                             <?php if (!empty($validation['alamat'])) : ?>
                                                 <div class="flex">
