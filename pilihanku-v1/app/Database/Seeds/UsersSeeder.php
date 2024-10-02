@@ -16,6 +16,7 @@ class UsersSeeder extends Seeder
                 'password' => password_hash('9B!vX3l@mZ*4Qw7$', PASSWORD_DEFAULT),
                 'created_at' => date('Y-m-d H:i:s'),
                 'updated_at' => date('Y-m-d H:i:s'),
+                'status' => 'diterima'
             ],
             [
                 'username' => 'admin',
@@ -23,6 +24,7 @@ class UsersSeeder extends Seeder
                 'password' => password_hash('A5*Zy7#bP2@xW8!v', PASSWORD_DEFAULT),
                 'created_at' => date('Y-m-d H:i:s'),
                 'updated_at' => date('Y-m-d H:i:s'),
+                'status' => 'diterima'
             ],
         ];
 
